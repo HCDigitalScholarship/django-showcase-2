@@ -2,18 +2,25 @@
 This repository showcases the best practices for developing Django applications at Haverford College Digital Scholarship.
 
 ## One-time set-up steps
-You'll need Python 3, pip, git, and virtualenv installed to run this project.
+You'll need Python 3, pip, git, and [virtualenv](https://virtualenv.pypa.io/en/stable/) installed to run this project. [black](https://black.readthedocs.io/en/stable/) and [flake8](https://gitlab.com/pycqa/flake8) are also highly recommended, though not strictly necessary.
 
 First, clone this repository with git:
 
 ```
 $ git clone https://github.com/HCDigitalScholarship/django-showcase-2.git
+$ cd django-showcase-2
+```
+
+Set up the [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks):
+
+```
+$ cd .git/hooks
+$ ln -s ../../githooks/pre-commit
 ```
 
 Next, create a new virtual environment and activate it:
 
 ```
-$ cd django-showcase-2
 $ virtualenv .venv --python=python3
 $ source .venv/bin/activate
 ```
