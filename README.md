@@ -35,3 +35,7 @@ Now you should be able to run the server:
 ```
 $ ./manage.py runserver
 ```
+
+## Resources
+- [Django's official documentation](https://github.com/HCDigitalScholarship/django-showcase-2)
+- *[Test-Driven Web Development with Python](https://www.obeythetestinggoat.com/pages/book.html#toc)* by Harry J. W. Percival is a great resource for learning Django, from creating your first Django application all the way to deploying it to the public internet.
