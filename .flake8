@@ -1,0 +1,11 @@
+[flake8]
+max-line-length = 88
+exclude = .git, __pycache__, __init__py
+# Ignore things that black inserts or handles
+ignore =
+    # E203 whitespace before ':'
+    E203,
+    # W503 line break before binary operator
+    W503,
+    # E501 line too long
+    E501,
