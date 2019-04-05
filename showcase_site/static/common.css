@@ -1,0 +1,13 @@
+/* A class for a centered container no more than 1000px wide. */
+.main-1000px {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1000px;
+}
+
+/* A class for a centered container no more than 800px wide. */
+.main-800px {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 800px;
+}
