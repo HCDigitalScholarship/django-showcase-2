@@ -112,3 +112,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = "/static/"
+# We keep some common static assets in the site folder, to be shared between apps.
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "showcase_site", "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "static_collected")
