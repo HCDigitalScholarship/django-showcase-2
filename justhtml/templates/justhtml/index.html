@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'justhtml/css/index.css' %}">
+{% endblock %}
+
 {% block body %}
-<div class="main-800px">
-<h1>Welcome to the Django showcase!</h1>
+<div id="main" class="main-800px">
+<h1 id="title">Welcome to the Django showcase!</h1>
+<p>You can view the source code for this site on <a href="https://github.com/HCDigitalScholarship/django-showcase-2">GitHub</a>.</p>
 </div>
 {% endblock %}

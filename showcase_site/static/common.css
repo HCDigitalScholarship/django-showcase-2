@@ -3,6 +3,8 @@
   margin: 0 auto;
   width: 90%;
   max-width: 1000px;
+  height: 100%;
+  overflow: auto;
 }
 
 /* A class for a centered container no more than 800px wide. */
@@ -10,4 +12,16 @@
   margin: 0 auto;
   width: 90%;
   max-width: 800px;
+  height: 100%;
+  overflow: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
