@@ -31,6 +31,7 @@ else:
 
 INSTALLED_APPS = [
     "justhtml.apps.JustHTMLConfig",
+    "textviewer.apps.TextViewerConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

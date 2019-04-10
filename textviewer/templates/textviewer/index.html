@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Texts{% endblock %}
+
+{% block body %}
+<div class="main-800px">
+<h1>Available texts</h1>
+<ul>
+{% for text in texts %}
+<li>{{ text.title }}</li>
+{% empty %}
+<li>No texts in the database yet!</li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
