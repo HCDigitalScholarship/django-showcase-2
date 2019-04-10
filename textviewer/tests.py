@@ -1,3 +1,7 @@
 from django.test import TestCase
 
-# Create your tests here.
+
+class TextViewerTests(TestCase):
+    def test_index_page_uses_right_template(self):
+        response = self.client.get("/texts/")
+        self.assertTemplateUsed(response, "textviewer/index.html")
