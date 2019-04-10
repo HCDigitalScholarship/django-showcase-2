@@ -4,7 +4,13 @@
 
 {% block body %}
 <div class="main-800px">
-<h1>Available texts</h1>
+
+<h1 class="centered">Available texts</h1>
+
+<p>
+  The following texts are currently available for viewing:
+</p>
+
 <ul>
 {% for text in texts %}
 <li><a href="{{ text.get_absolute_url }}">{{ text.title }}</a></li>
@@ -12,5 +18,10 @@
 <li>No texts in the database yet!</li>
 {% endfor %}
 </ul>
+
+<p>
+  You can add more texts through <a href="{% url 'admin:index' %}">the admin interface</a>.
+</p>
+
 </div>
 {% endblock %}

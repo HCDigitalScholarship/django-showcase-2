@@ -28,3 +28,7 @@ html, body {
   font-family: "Georgia", sans-serif;
   background-color: #fff8f2;
 }
+
+.centered {
+  text-align: center;
+}
