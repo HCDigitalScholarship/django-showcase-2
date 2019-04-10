@@ -7,7 +7,7 @@
 <h1>Available texts</h1>
 <ul>
 {% for text in texts %}
-<li>{{ text.title }}</li>
+<li><a href="{{ text.get_absolute_url }}">{{ text.title }}</a></li>
 {% empty %}
 <li>No texts in the database yet!</li>
 {% endfor %}

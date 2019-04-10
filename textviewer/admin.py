@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from . import models
+
+
+class TextAdmin(admin.ModelAdmin):
+    prepopulated_fields = {"slug": ("title", "author")}
+
+
+admin.site.register(models.Text, TextAdmin)
