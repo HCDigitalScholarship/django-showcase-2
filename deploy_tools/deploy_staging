@@ -2,4 +2,4 @@
 
 git tag -d STAGING
 git tag STAGING
-fab -f deploy_tools/fabfile.py -i "~/showcase.pem" deploy:host=www-data@dev.django-showcase.haverford.edu
+fab -f deploy_tools/fabfile.py deploy:host=dev.django-showcase.haverford.edu
