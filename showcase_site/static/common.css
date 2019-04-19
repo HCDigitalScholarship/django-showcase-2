@@ -1,6 +1,6 @@
-/* A class for a centered container no more than 800px wide. */
+/* A class for a centered container no more than 52rem wide. */
 .main {
-  max-width: 50rem;
+  max-width: 52rem;
   padding: 2rem;
   margin: 0 auto;
   height: 100%;
