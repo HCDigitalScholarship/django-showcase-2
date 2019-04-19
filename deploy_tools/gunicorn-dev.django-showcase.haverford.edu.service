@@ -3,7 +3,7 @@ Description=Gunicorn server for dev.django-showcase.haverford.edu
 
 [Service]
 Restart=on-failure
-User=www-data
+User=iafisher
 WorkingDirectory=/srv/sites/dev.django-showcase.haverford.edu
 EnvironmentFile=/srv/sites/dev.django-showcase.haverford.edu/.env
 
