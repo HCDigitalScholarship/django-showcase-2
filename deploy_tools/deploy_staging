@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
+fab -f deploy_tools/fabfile.py deploy:host=dev.django-showcase.haverford.edu
 git tag -d STAGING
 git tag STAGING
-fab -f deploy_tools/fabfile.py deploy:host=dev.django-showcase.haverford.edu

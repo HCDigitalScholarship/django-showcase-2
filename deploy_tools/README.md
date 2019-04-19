@@ -21,12 +21,20 @@ You'll need to provision a server running Ubuntu (e.g., from Digital Ocean or AW
 $ sudo usermod -aG sudo,www-data <your-username>
 ```
 
-3. Optional: Use [certbot](https://certbot.eff.org/) to set up HTTPS.
+3. Create a `sites` directory and make `www-data` the owner:
+
+```
+$ sudo mkdir /srv/sites
+$ sudo chown www-data: /srv/sites
+$ sudo chmod g+w /srv/sites
+```
+
+4. Optional: Use [certbot](https://certbot.eff.org/) to set up HTTPS.
 
 ### Deploy the code
-1. Clone this repository in `/srv/dev.django-showcase.haverford.edu`.
+1. Deploy the code with `./deploy_tools/deploy_staging` (or `./deploy_tools/deploy_live` the second time around).
 
-2. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/nginx-dev-conf` to `/etc/nginx/sites-available/showcase-dev`, and symlink that to `/etc/nginx/sites-enabled/showcase-dev`.
+2. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/nginx-dev-conf` to `/etc/nginx/sites-available/dev.django-showcase.haverford.edu`, and symlink that to `/etc/nginx/sites-enabled/dev.django-showcase.haverford.edu`.
 
 3. Run `sudo systemctl reload nginx` to restart nginx.
 
@@ -34,9 +42,9 @@ $ sudo usermod -aG sudo,www-data <your-username>
 
 5. Run `sudo systemctl daemon-reload`.
 
-6. Run `sudo systemcl enable gunicorn-dev.django-showcase.haverford.edu.service`.
+6. Run `sudo systemctl enable gunicorn-dev.django-showcase.haverford.edu.service`.
 
-7. Run `sudo systemcl start gunicorn-dev.django-showcase.haverford.edu.service`.
+7. Run `sudo systemctl start gunicorn-dev.django-showcase.haverford.edu.service`.
 
 8. Repeat the steps in this section, replacing `dev.django-showcase.haverford.edu` with `django-showcase.haverford.edu`.
 

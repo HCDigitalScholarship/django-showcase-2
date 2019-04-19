@@ -4,10 +4,10 @@ Description=Gunicorn server for django-showcase.haverford.edu
 [Service]
 Restart=on-failure
 User=www-data
-WorkingDirectory=/srv/django-showcase.haverford.edu
-EnvironmentFile=/srv/django-showcase.haverford.edu/.env
+WorkingDirectory=/srv/sites/django-showcase.haverford.edu
+EnvironmentFile=/srv/sites/django-showcase.haverford.edu/.env
 
-ExecStart=/srv/django-showcase.haverford.edu/.venv/bin/gunicorn \
+ExecStart=/srv/sites/django-showcase.haverford.edu/.venv/bin/gunicorn \
     --bind unix:/tmp/django-showcase.haverford.edu.socket \
     showcase_site.wsgi:application
 

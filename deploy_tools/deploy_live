@@ -1,9 +1,11 @@
 #!/bin/bash
 
+set -e
+
 deploy_live() {
+  fab -f deploy_tools/fabfile.py deploy:host=django-showcase.haverford.edu
   git tag -d LIVE
   git tag LIVE
-  fab -f deploy_tools/fabfile.py deploy:host=django-showcase.haverford.edu
 }
 
 read -p "Are you sure you want to deploy to the live server? " yn

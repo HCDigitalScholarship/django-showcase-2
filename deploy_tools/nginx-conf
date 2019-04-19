@@ -2,7 +2,7 @@ server {
 	server_name django-showcase.haverford.edu;
 
 	location /static {
-		alias /srv/django-showcase.haverford.edu/static_collected;
+		alias /srv/sites/django-showcase.haverford.edu/static_collected;
 	}
 
 	location / {

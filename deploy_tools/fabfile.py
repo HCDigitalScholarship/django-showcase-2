@@ -15,7 +15,7 @@ REPO_URL = "https://github.com/HCDigitalScholarship/django-showcase-2.git"
 
 
 def deploy():
-    site_folder = "/srv/{0.host}".format(env)
+    site_folder = "/srv/sites/{0.host}".format(env)
     run("mkdir -p " + site_folder)
     with cd(site_folder):
         _get_latest_source()
@@ -23,8 +23,6 @@ def deploy():
         _create_or_update_dotenv()
         _update_static_files()
         _update_database()
-
-    with cd(home_folder):
         _restart_service()
 
 
