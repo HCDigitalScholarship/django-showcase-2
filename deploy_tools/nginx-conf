@@ -1,0 +1,12 @@
+server {
+	server_name django-showcase.haverford.edu;
+
+	location /static {
+		alias /srv/django-showcase.haverford.edu/static_collected;
+	}
+
+	location / {
+		proxy_pass http://unix:/tmp/django-showcase.haverford.edu.socket;
+		proxy_set_header Host $host;
+	}
+}

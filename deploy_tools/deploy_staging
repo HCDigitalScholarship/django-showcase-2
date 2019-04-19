@@ -1,0 +1,5 @@
+#!/bin/sh
+
+git tag -d STAGING
+git tag STAGING
+fab -f deploy_tools/fabfile.py -i "~/showcase.pem" deploy:host=www-data@dev.django-showcase.haverford.edu

@@ -1,0 +1,13 @@
+#!/bin/bash
+# Run the functional test suite against a local server.
+#
+# If you change this file, make sure to change ./test_dev as well!
+
+if [[ $# -eq 0 ]]; then
+  ARGS=test
+else
+  ARGS=$@
+fi
+
+./manage.py test
+TEST_URL=http://localhost:8000 pytest $ARGS

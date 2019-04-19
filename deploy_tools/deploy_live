@@ -1,0 +1,13 @@
+#!/bin/bash
+
+deploy_live() {
+  git tag -d LIVE
+  git tag LIVE
+  fab -f deploy_tools/fabfile.py -i "~/showcase.pem" deploy:host=www-data@django-showcase.haverford.edu
+}
+
+read -p "Are you sure you want to deploy to the live server? " yn
+case $yn in
+  [Yy]* ) deploy_live;;
+  *     ) exit;;
+esac

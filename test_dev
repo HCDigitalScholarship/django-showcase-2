@@ -1,0 +1,12 @@
+#!/bin/bash
+# Run the functional test suite against the development server.
+#
+# If you change this file, make sure to change ./test_local as well!
+
+if [[ $# -eq 0 ]]; then
+  ARGS=test
+else
+  ARGS=$@
+fi
+
+TEST_URL=dev.django-showcase.haverford.edu pytest $ARGS
