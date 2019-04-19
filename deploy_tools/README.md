@@ -16,26 +16,18 @@
 
 3. Clone this repository in `/srv/django-showcase.haverford.edu`.
 
-4. Clone this repository again, in `/srv/dev.django-showcase.haverford.edu`.
+4. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/nginx-dev-conf` to `/etc/nginx/sites-available/showcase-dev`, and symlink that to `/etc/nginx/sites-enabled/showcase-dev`.
 
-5. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/nginx-dev-conf` to `/etc/nginx/sites-available/showcase-dev`, and symlink that to `/etc/nginx/sites-enabled/showcase-dev`.
+5. Run `sudo systemctl reload nginx` to restart nginx.
 
-6. Symlink `/srv/django-showcase.haverford.edu/deploy_tools/nginx-conf` to `/etc/nginx/sites-available/showcase`, and symlink that to `/etc/nginx/sites-enabled/showcase`.
+6. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/gunicorn-dev.django-showcase.haverford.edu.service` to `/etc/systemd/system/` (keeping the same name).
 
-7. Run `sudo systemctl reload nginx` to restart nginx.
+7. Run `sudo systemctl daemon-reload`.
 
-8. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/gunicorn-dev.django-showcase.haverford.edu.service` to `/etc/systemd/system/` (keeping the same name).
+8. Run `sudo systemcl enable gunicorn-dev.django-showcase.haverford.edu.service`.
 
-9. Symlink `/srv/django-showcase.haverford.edu/deploy_tools/gunicorn-django-showcase.haverford.edu.service` to `/etc/systemd/system/` (keeping the same name).
+9. Run `sudo systemcl start gunicorn-dev.django-showcase.haverford.edu.service`.
 
-10. Run `sudo systemctl daemon-reload`.
-
-11. Run `sudo systemcl enable gunicorn-dev.django-showcase.haverford.edu.service`.
-
-12. Run `sudo systemcl enable gunicorn-django-showcase.haverford.edu.service`.
-
-13. Run `sudo systemcl start gunicorn-dev.django-showcase.haverford.edu.service`.
-
-14. Run `sudo systemcl start gunicorn-django-showcase.haverford.edu.service`.
+10. Repeat the same steps replacing `dev.django-showcase.haverford.edu` with `django-showcase.haverford.edu`.
 
 You can view the Systemd logs with `sudo journalctl -u gunicorn-showcase.service`.
