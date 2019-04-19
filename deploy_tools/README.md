@@ -14,7 +14,7 @@
 
 2. Optional: Use [certbot](https://certbot.eff.org/) to set up HTTPS.
 
-3. Clone this repository in `/srv/django-showcase.haverford.edu`.
+3. Clone this repository in `/srv/dev.django-showcase.haverford.edu`.
 
 4. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/nginx-dev-conf` to `/etc/nginx/sites-available/showcase-dev`, and symlink that to `/etc/nginx/sites-enabled/showcase-dev`.
 
@@ -28,6 +28,6 @@
 
 9. Run `sudo systemcl start gunicorn-dev.django-showcase.haverford.edu.service`.
 
-10. Repeat the same steps replacing `dev.django-showcase.haverford.edu` with `django-showcase.haverford.edu`.
+10. Repeat steps 3-9 replacing `dev.django-showcase.haverford.edu` with `django-showcase.haverford.edu`.
 
 You can view the Systemd logs with `sudo journalctl -u gunicorn-showcase.service`.
