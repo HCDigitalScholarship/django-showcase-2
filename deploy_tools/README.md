@@ -34,11 +34,11 @@ $ sudo chmod g+w /srv/sites
 ### Deploy the code
 1. Deploy the code with `./deploy_tools/deploy_staging` (or `./deploy_tools/deploy_live` the second time around).
 
-2. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/nginx-dev-conf` to `/etc/nginx/sites-available/dev.django-showcase.haverford.edu`, and symlink that to `/etc/nginx/sites-enabled/dev.django-showcase.haverford.edu`.
+2. Symlink `/srv/sites/dev.django-showcase.haverford.edu/deploy_tools/nginx-dev-conf` to `/etc/nginx/sites-available/dev.django-showcase.haverford.edu`, and symlink that to `/etc/nginx/sites-enabled/dev.django-showcase.haverford.edu`.
 
 3. Run `sudo systemctl reload nginx` to restart nginx.
 
-4. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/gunicorn-dev.django-showcase.haverford.edu.service` to `/etc/systemd/system/` (keeping the same name).
+4. Symlink `/srv/sites/dev.django-showcase.haverford.edu/deploy_tools/gunicorn-dev.django-showcase.haverford.edu.service` to `/etc/systemd/system/` (keeping the same name).
 
 5. Run `sudo systemctl daemon-reload`.
 

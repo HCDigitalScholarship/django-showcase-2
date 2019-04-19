@@ -62,4 +62,5 @@ def _update_database():
 
 
 def _restart_service():
+    run("sudo systemctl daemon-reload")
     run("sudo systemctl restart gunicorn-{0.host}.service".format(env))
