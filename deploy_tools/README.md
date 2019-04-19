@@ -8,26 +8,36 @@
 4. Double-check that the changes were successful by visiting the site.
 
 ## Provisioning
-[Obey the Testing Goat](https://www.obeythetestinggoat.com/book/chapter_making_deployment_production_ready.html).
+These instructions are based on the deployment chapter of [Obey the Testing Goat](https://www.obeythetestinggoat.com/book/chapter_making_deployment_production_ready.html).
 
+You'll need to provision a server running Ubuntu (e.g., from Digital Ocean or AWS), and update the domain name registry to point to the server's IP address.
+
+### Prepare the server
 1. Make sure the following software is installed: Python 3, pip, git, and nginx.
 
-2. Optional: Use [certbot](https://certbot.eff.org/) to set up HTTPS.
+2. Make sure your user account is in the `www-data` group by running the following command (note: if you belong to groups other than `sudo` make sure to add them to the comma-separated list):
 
-3. Clone this repository in `/srv/dev.django-showcase.haverford.edu`.
+```
+$ sudo usermod -aG sudo,www-data <your-username>
+```
 
-4. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/nginx-dev-conf` to `/etc/nginx/sites-available/showcase-dev`, and symlink that to `/etc/nginx/sites-enabled/showcase-dev`.
+3. Optional: Use [certbot](https://certbot.eff.org/) to set up HTTPS.
 
-5. Run `sudo systemctl reload nginx` to restart nginx.
+### Deploy the code
+1. Clone this repository in `/srv/dev.django-showcase.haverford.edu`.
 
-6. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/gunicorn-dev.django-showcase.haverford.edu.service` to `/etc/systemd/system/` (keeping the same name).
+2. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/nginx-dev-conf` to `/etc/nginx/sites-available/showcase-dev`, and symlink that to `/etc/nginx/sites-enabled/showcase-dev`.
 
-7. Run `sudo systemctl daemon-reload`.
+3. Run `sudo systemctl reload nginx` to restart nginx.
 
-8. Run `sudo systemcl enable gunicorn-dev.django-showcase.haverford.edu.service`.
+4. Symlink `/srv/dev.django-showcase.haverford.edu/deploy_tools/gunicorn-dev.django-showcase.haverford.edu.service` to `/etc/systemd/system/` (keeping the same name).
 
-9. Run `sudo systemcl start gunicorn-dev.django-showcase.haverford.edu.service`.
+5. Run `sudo systemctl daemon-reload`.
 
-10. Repeat steps 3-9 replacing `dev.django-showcase.haverford.edu` with `django-showcase.haverford.edu`.
+6. Run `sudo systemcl enable gunicorn-dev.django-showcase.haverford.edu.service`.
+
+7. Run `sudo systemcl start gunicorn-dev.django-showcase.haverford.edu.service`.
+
+8. Repeat the steps in this section, replacing `dev.django-showcase.haverford.edu` with `django-showcase.haverford.edu`.
 
 You can view the Systemd logs with `sudo journalctl -u gunicorn-showcase.service`.
