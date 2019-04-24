@@ -1,0 +1,13 @@
+[uwsgi]
+
+uid = www-data
+gid = www-data
+socket = /run/uwsgi/app/showcase/showcase-dev.socket
+
+plugins = python3
+chdir = /srv/sites/dev.django-showcase.haverford.edu
+virtualenv = /srv/sites/dev.django-showcase.haverford.edu/.venv
+module = showcase_site.wsgi:application
+
+processes = 4
+threads = 2
