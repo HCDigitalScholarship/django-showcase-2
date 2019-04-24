@@ -34,6 +34,7 @@ def _get_latest_source():
 
     current_commit = local("git log -n 1 --format=%H", capture=True)
     run("git reset --hard " + current_commit)
+    run("sudo chown -R www-data: .")
 
 
 def _update_virtualenv():
