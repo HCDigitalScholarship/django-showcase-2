@@ -38,14 +38,8 @@ $ sudo chmod g+w /srv/sites
 
 3. Run `sudo systemctl reload nginx` to restart nginx.
 
-4. Symlink `/srv/sites/dev.django-showcase.haverford.edu/deploy_tools/gunicorn-dev.django-showcase.haverford.edu.service` to `/etc/systemd/system/` (keeping the same name).
+4. Symlink `/srv/sites/dev.django-showcase.haverford.edu/deploy_tools/uwsgi-dev-conf` to `/etc/uwsgi/apps-available/showcase-dev.ini`.
 
-5. Run `sudo systemctl daemon-reload`.
+5. Run `sudo service uwsgi restart`.
 
-6. Run `sudo systemctl enable gunicorn-dev.django-showcase.haverford.edu.service`.
-
-7. Run `sudo systemctl start gunicorn-dev.django-showcase.haverford.edu.service`.
-
-8. Repeat the steps in this section, replacing `dev.django-showcase.haverford.edu` with `django-showcase.haverford.edu`.
-
-You can view the Systemd logs with `sudo journalctl -u gunicorn-showcase.service`.
+6. Repeat the steps in this section, replacing `dev.django-showcase.haverford.edu` with `django-showcase.haverford.edu`.
