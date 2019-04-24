@@ -2,7 +2,7 @@
 
 uid = www-data
 gid = www-data
-socket = /run/uwsgi/app/showcase/showcase-dev.socket
+socket = /run/uwsgi/app/showcase-dev/socket
 
 plugins = python3
 chdir = /srv/sites/dev.django-showcase.haverford.edu
