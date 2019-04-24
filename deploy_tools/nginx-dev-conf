@@ -6,7 +6,7 @@ server {
 	}
 
 	location / {
-		proxy_pass http://unix:/tmp/dev.django-showcase.haverford.edu.socket;
-		proxy_set_header Host $host;
+		include uwsgi_params;
+		uwsgi_pass unix:/run/uwsgi/app/showcase-dev/socket;
 	}
 }
