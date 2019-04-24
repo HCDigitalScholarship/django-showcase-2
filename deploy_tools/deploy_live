@@ -8,6 +8,19 @@ deploy_live() {
   git tag LIVE
 }
 
+# Make sure we are on the master branch.
+if (git branch | grep -v "* master") &> /dev/null; then
+  echo "Error: not on master branch."
+  exit
+fi
+
+# Make sure the STAGING tag points to HEAD, meaning that we have already deployed the
+# latest changes to the staging server.
+if ! diff -s .git/refs/heads/master .git/refs/tags/STAGING &>/dev/null; then
+  echo "Error: have not deployed to staging server first."
+  exit
+fi
+
 read -p "Are you sure you want to deploy to the live server? " yn
 case $yn in
   [Yy]* ) deploy_live;;
