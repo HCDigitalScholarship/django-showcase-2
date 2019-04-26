@@ -9,7 +9,7 @@ deploy_live() {
 }
 
 # Make sure we are on the master branch.
-if (git branch | grep -v "* master") &> /dev/null; then
+if ! (git branch | grep "* master") &> /dev/null; then
   echo "Error: not on master branch."
   exit
 fi
