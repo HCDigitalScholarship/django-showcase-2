@@ -18,8 +18,26 @@ function addButtonCallback() {
 }
 
 
-function saveButtonCallback() {
-    console.log("Saving!");
+function saveButtonCallback(event) {
+    let row = event.target.parentNode.parentNode;
+
+    for (let input of row.querySelectorAll("input")) {
+        let text = input.value.trim();
+        input.parentNode.appendChild(document.createTextNode(text));
+        input.remove();
+    }
+
+    let editButton = document.createElement("button");
+    editButton.addEventListener("click", editButtonCallback);
+    editButton.textContent = "Edit";
+    event.target.parentNode.appendChild(editButton);
+    event.target.remove();
+}
+
+
+function editButtonCallback(event) {
+    console.log("Editing");
+    console.log(event.target);
 }
 
 
@@ -32,7 +50,9 @@ function renderNewRow() {
     let saveButton = document.createElement("button");
     saveButton.addEventListener("click", saveButtonCallback);
     saveButton.textContent = "Save";
-    row.appendChild(saveButton);
+    let saveButtonCell = document.createElement("td");
+    saveButtonCell.appendChild(saveButton);
+    row.appendChild(saveButtonCell);
     return row;
 }
 
