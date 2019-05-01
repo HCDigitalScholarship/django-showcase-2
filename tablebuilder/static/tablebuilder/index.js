@@ -22,9 +22,20 @@ function addButtonCallback() {
 
 function saveButtonCallback(event) {
     let row = event.target.parentNode.parentNode;
+    saveRow(row, true);
+}
 
+
+function cancelButtonCallback(event) {
+    let row = event.target.parentNode.parentNode;
+    saveRow(row, false);
+}
+
+
+function saveRow(row, useInputText) {
     for (let input of row.querySelectorAll(".content-cell input")) {
-        let text = input.value.trim();
+        let text = useInputText ? input.value.trim()
+                                : input.getAttribute("data-original");
         input.parentNode.appendChild(document.createTextNode(text));
         input.remove();
     }
@@ -33,9 +44,14 @@ function saveButtonCallback(event) {
     editButton.addEventListener("click", editButtonCallback);
     editButton.textContent = "Edit";
 
+    let removeButton = document.createElement("button");
+    removeButton.addEventListener("click", removeButtonCallback);
+    removeButton.textContent = "Remove";
+
     let buttonCell = row.querySelector(".button-cell");
     buttonCell.innerHTML = "";
     buttonCell.appendChild(editButton);
+    buttonCell.appendChild(removeButton);
 }
 
 
@@ -45,7 +61,7 @@ function editButtonCallback(event) {
     for (let cell of row.querySelectorAll(".content-cell")) {
         let text = cell.textContent;
         cell.textContent = "";
-        
+
         let input = document.createElement("input");
         input.setAttribute("type", "text");
         input.setAttribute("data-original", text);
@@ -68,22 +84,9 @@ function editButtonCallback(event) {
 }
 
 
-function cancelButtonCallback(event) {
+function removeButtonCallback(event) {
     let row = event.target.parentNode.parentNode;
-
-    for (let input of row.querySelectorAll(".content-cell input")) {
-        let text = input.getAttribute("data-original");
-        input.parentNode.appendChild(document.createTextNode(text));
-        input.remove();
-    }
-
-    let editButton = document.createElement("button");
-    editButton.addEventListener("click", editButtonCallback);
-    editButton.textContent = "Edit";
-
-    let buttonCell = row.querySelector(".button-cell");
-    buttonCell.innerHTML = "";
-    buttonCell.appendChild(editButton);
+    row.remove();
 }
 
 
@@ -96,10 +99,12 @@ function renderNewRow() {
     let saveButton = document.createElement("button");
     saveButton.addEventListener("click", saveButtonCallback);
     saveButton.textContent = "Save";
+
     let saveButtonCell = document.createElement("td");
     saveButtonCell.classList.add("button-cell");
     saveButtonCell.appendChild(saveButton);
     row.appendChild(saveButtonCell);
+
     return row;
 }
 
