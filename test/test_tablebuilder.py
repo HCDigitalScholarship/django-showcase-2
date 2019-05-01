@@ -137,6 +137,20 @@ def test_add_and_cancel_editing_a_row(url, browser):
         assert "Python" not in cell.text
 
 
+def test_remove_row(url, browser):
+    browser.get(url + "/tablebuilder/")
+
+    add_some_rows(browser, ["Haverford", "Bryn Mawr", "Swarthmore", "Penn"])
+
+    row = browser.find_element_by_css_selector("tr:nth-child(4)")
+    remove_button = row.find_element_by_css_selector("button.remove-button")
+    remove_button.click()
+    wait_for(lambda: "Penn" not in browser.page_source)
+
+    table = browser.find_element_by_id("table")
+    assert len(table.find_elements_by_css_selector("tr")) == 4
+
+
 def add_some_rows(browser, content):
     nrows = 1
     table = browser.find_element_by_id("table")
