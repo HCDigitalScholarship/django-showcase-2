@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run the functional test suite against the development server.
+# Run the functional test suite against the staging server.
 #
 # If you change this file, make sure to change ./test_local as well!
 

@@ -6,4 +6,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("justhtml.urls")),
     path("texts/", include("textviewer.urls")),
+    path("tablebuilder", include("tablebuilder.urls")),
 ]
