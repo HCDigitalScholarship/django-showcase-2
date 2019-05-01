@@ -5,7 +5,7 @@ import pytest
 from selenium import webdriver
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def browser():
     """Get a (session-scoped) Selenium browser instance."""
     browser = webdriver.Firefox()

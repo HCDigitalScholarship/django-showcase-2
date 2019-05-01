@@ -41,10 +41,12 @@ function saveRow(row, useInputText) {
     }
 
     let editButton = document.createElement("button");
+    editButton.classList.add("edit-button");
     editButton.addEventListener("click", editButtonCallback);
     editButton.textContent = "Edit";
 
     let removeButton = document.createElement("button");
+    removeButton.classList.add("remove-button");
     removeButton.addEventListener("click", removeButtonCallback);
     removeButton.textContent = "Remove";
 
@@ -70,10 +72,12 @@ function editButtonCallback(event) {
     }
 
     let saveButton = document.createElement("button");
+    saveButton.classList.add("save-button");
     saveButton.addEventListener("click", saveButtonCallback);
     saveButton.textContent = "Save";
 
     let cancelButton = document.createElement("button");
+    cancelButton.classList.add("cancel-button");
     cancelButton.addEventListener("click", cancelButtonCallback);
     cancelButton.textContent = "Cancel";
 
@@ -97,6 +101,7 @@ function renderNewRow() {
     }
 
     let saveButton = document.createElement("button");
+    saveButton.classList.add("save-button");
     saveButton.addEventListener("click", saveButtonCallback);
     saveButton.textContent = "Save";
 

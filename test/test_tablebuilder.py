@@ -25,7 +25,7 @@ def test_can_add_new_row_and_save_it(url, browser):
         elem.send_keys("Haverford")
 
     # Save the row and wait for the inputs to disappear.
-    save_button = row.find_element_by_css_selector("button")
+    save_button = row.find_element_by_css_selector("button.save-button")
     save_button.click()
     wait_for(lambda: len(row.find_elements_by_css_selector("input")) == 0)
 
@@ -52,7 +52,7 @@ def test_add_several_rows(url, browser):
         elem.send_keys("Haverford")
 
     # Save the row and wait for the inputs to disappear.
-    save_button = row.find_element_by_css_selector("button")
+    save_button = row.find_element_by_css_selector("button.save-button")
     save_button.click()
     wait_for(lambda: len(row.find_elements_by_css_selector("input")) == 0)
 
@@ -70,7 +70,7 @@ def test_add_several_rows(url, browser):
     for elem in row.find_elements_by_css_selector("input"):
         elem.send_keys("Scholarship")
 
-    save_button = row.find_element_by_css_selector("button")
+    save_button = row.find_element_by_css_selector("button.save-button")
     save_button.click()
     wait_for(lambda: len(row.find_elements_by_css_selector("input")) == 0)
 
@@ -81,12 +81,60 @@ def test_add_several_rows(url, browser):
     for elem in row.find_elements_by_css_selector("input"):
         elem.send_keys("Digital")
 
-    save_button = row.find_element_by_css_selector("button")
+    save_button = row.find_element_by_css_selector("button.save-button")
     save_button.click()
     wait_for(lambda: len(row.find_elements_by_css_selector("input")) == 0)
 
     for cell in row.find_elements_by_css_selector(".content-cell"):
         assert "Digital" in cell.text
+
+
+def test_add_and_edit_a_row(url, browser):
+    browser.get(url + "/tablebuilder/")
+
+    add_some_rows(browser, ["JavaScript"])
+
+    row = browser.find_element_by_css_selector("tr:nth-child(1)")
+    edit_button = browser.find_element_by_css_selector("button.edit-button")
+    edit_button.click()
+    wait_for(lambda: len(row.find_elements_by_css_selector("input")) != 0)
+
+    for elem in row.find_elements_by_css_selector("input"):
+        assert "JavaScript" in elem.get_attribute("value")
+        elem.clear()
+        elem.send_keys("Python")
+
+    save_button = row.find_element_by_css_selector("button.save-button")
+    save_button.click()
+    wait_for(lambda: len(row.find_elements_by_css_selector("input")) == 0)
+
+    for cell in row.find_elements_by_css_selector(".content-cell"):
+        assert "Python" in cell.text
+        assert "JavaScript" not in cell.text
+
+
+def test_add_and_cancel_editing_a_row(url, browser):
+    browser.get(url + "/tablebuilder/")
+
+    add_some_rows(browser, ["JavaScript"])
+
+    row = browser.find_element_by_css_selector("tr:nth-child(1)")
+    edit_button = browser.find_element_by_css_selector("button.edit-button")
+    edit_button.click()
+    wait_for(lambda: len(row.find_elements_by_css_selector("input")) != 0)
+
+    for elem in row.find_elements_by_css_selector("input"):
+        assert "JavaScript" in elem.get_attribute("value")
+        elem.clear()
+        elem.send_keys("Python")
+
+    cancel_button = row.find_element_by_css_selector("button.cancel-button")
+    cancel_button.click()
+    wait_for(lambda: len(row.find_elements_by_css_selector("input")) == 0)
+
+    for cell in row.find_elements_by_css_selector(".content-cell"):
+        assert "JavaScript" in cell.text
+        assert "Python" not in cell.text
 
 
 def add_some_rows(browser, content):
@@ -103,6 +151,6 @@ def add_some_rows(browser, content):
         for elem in row.find_elements_by_css_selector("input"):
             elem.send_keys(cell)
 
-        save_button = row.find_element_by_css_selector("button")
+        save_button = row.find_element_by_css_selector("button.save-button")
         save_button.click()
         wait_for(lambda: len(row.find_elements_by_css_selector("input")) == 0)
