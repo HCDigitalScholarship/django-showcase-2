@@ -48,6 +48,7 @@ function editButtonCallback(event) {
         
         let input = document.createElement("input");
         input.setAttribute("type", "text");
+        input.setAttribute("data-original", text);
         input.value = text;
         cell.appendChild(input);
     }
@@ -56,9 +57,33 @@ function editButtonCallback(event) {
     saveButton.addEventListener("click", saveButtonCallback);
     saveButton.textContent = "Save";
 
+    let cancelButton = document.createElement("button");
+    cancelButton.addEventListener("click", cancelButtonCallback);
+    cancelButton.textContent = "Cancel";
+
     let buttonCell = row.querySelector(".button-cell");
     buttonCell.innerHTML = "";
     buttonCell.appendChild(saveButton);
+    buttonCell.appendChild(cancelButton);
+}
+
+
+function cancelButtonCallback(event) {
+    let row = event.target.parentNode.parentNode;
+
+    for (let input of row.querySelectorAll(".content-cell input")) {
+        let text = input.getAttribute("data-original");
+        input.parentNode.appendChild(document.createTextNode(text));
+        input.remove();
+    }
+
+    let editButton = document.createElement("button");
+    editButton.addEventListener("click", editButtonCallback);
+    editButton.textContent = "Edit";
+
+    let buttonCell = row.querySelector(".button-cell");
+    buttonCell.innerHTML = "";
+    buttonCell.appendChild(editButton);
 }
 
 
