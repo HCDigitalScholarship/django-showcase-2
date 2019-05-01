@@ -9,4 +9,4 @@ else
   ARGS=$@
 fi
 
-TEST_URL=dev.django-showcase.haverford.edu pytest $ARGS
+TEST_URL=http://dev.django-showcase.haverford.edu pytest $ARGS
