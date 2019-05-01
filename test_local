@@ -1,7 +1,7 @@
 #!/bin/bash
 # Run the functional test suite against a local server.
 #
-# If you change this file, make sure to change ./test_dev as well!
+# If you change this file, make sure to change ./test_staging as well!
 
 if [[ $# -eq 0 ]]; then
   ARGS=test

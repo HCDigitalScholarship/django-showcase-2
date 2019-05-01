@@ -1,7 +1,7 @@
 ## Deployment steps
 1. Run `./deploy_tools/deploy_staging` to deploy to the staging server.
 
-2. Run `./test_dev` to test the staging server against the test suite.
+2. Run `./test_staging` to test the staging server against the test suite.
 
 3. Assuming the tests passed in step 2, run `./deploy_tools/deploy_live` to deploy to the live server. You will need to confirm you want to deploy to production.
 
