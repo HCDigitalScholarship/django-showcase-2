@@ -2,11 +2,8 @@
   width: 100%;
   margin-top: 20px;
   border: 1px solid black;
-
-  /* Necessary for unbroken horizontal line underneath table header. */
-  border-collapse: collapse;
 }
 
-#table thead th {
-  border-bottom: 1px solid black;
+#table td input {
+  width: 100%;
 }
