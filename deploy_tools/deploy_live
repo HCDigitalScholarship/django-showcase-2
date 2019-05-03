@@ -3,7 +3,12 @@
 set -e
 
 deploy_live() {
-  fab -f deploy_tools/fabfile.py deploy:host=django-showcase.haverford.edu
+  if [[ $# -ne 0 ]]; then
+    fab -f deploy_tools/fabfile.py "deploy:host=$1@django-showcase.haverford.edu"
+  else
+    fab -f deploy_tools/fabfile.py deploy:host=django-showcase.haverford.edu
+  fi
+
   git tag -d LIVE
   git tag LIVE
 }

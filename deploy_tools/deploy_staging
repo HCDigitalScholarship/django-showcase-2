@@ -2,6 +2,11 @@
 
 set -e
 
-fab -f deploy_tools/fabfile.py deploy:host=dev.django-showcase.haverford.edu
+if [[ $# -ne 0 ]]; then
+  fab -f deploy_tools/fabfile.py "deploy:host=$1@dev.django-showcase.haverford.edu"
+else
+  fab -f deploy_tools/fabfile.py deploy:host=dev.django-showcase.haverford.edu
+fi
+
 git tag -d STAGING
 git tag STAGING

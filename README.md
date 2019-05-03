@@ -21,7 +21,7 @@ $ git clone https://github.com/HCDigitalScholarship/django-showcase-2.git
 $ cd django-showcase-2
 ```
 
-(Highly recommended) Install [black](https://black.readthedocs.io/en/stable/index.html) and [flake8](http://flake8.pycqa.org/en/latest/index.html#):
+(Highly recommended) Install [black](https://black.readthedocs.io/en/stable/index.html) and [flake8](http://flake8.pycqa.org/en/latest/index.html#). Note that you will need at least Python 3.6 in order to install black.
 
 ```
 $ pip3 install black flake8
