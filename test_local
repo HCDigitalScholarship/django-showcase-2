@@ -20,7 +20,11 @@ PORT=$((9500 + RANDOM % 100))
 DJANGO_TEST_DB=testdb.sqlite3 ./manage.py runserver $PORT &>/dev/null &
 
 TEST_URL=http://localhost:$PORT pytest $ARGS
+ret=$?
 
 # Kill the server. We use pkill because the Django runserver command spawns another
 # process, so just killing the original process by its PID is not enough.
 pkill -f "runserver $PORT"
+
+# Return the same exit code as pytest.
+exit $ret

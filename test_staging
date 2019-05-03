@@ -1,7 +1,5 @@
 #!/bin/bash
 # Run the functional test suite against the staging server.
-#
-# If you change this file, make sure to change ./test_local as well!
 
 if [[ $# -eq 0 ]]; then
   ARGS=test
@@ -9,4 +7,6 @@ else
   ARGS=$@
 fi
 
+# If you change anything, make sure that the script still returns the same exit code as
+# this command.
 TEST_URL=http://dev.django-showcase.haverford.edu pytest $ARGS
