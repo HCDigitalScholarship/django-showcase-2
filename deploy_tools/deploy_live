@@ -9,7 +9,9 @@ deploy_live() {
     fab -f deploy_tools/fabfile.py deploy:host=django-showcase.haverford.edu
   fi
 
-  git tag -d LIVE
+  if git tag | grep LIVE; then
+    git tag -d LIVE
+  fi
   git tag LIVE
 }
 

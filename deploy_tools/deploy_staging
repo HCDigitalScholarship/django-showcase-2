@@ -8,5 +8,7 @@ else
   fab -f deploy_tools/fabfile.py deploy:host=dev.django-showcase.haverford.edu
 fi
 
-git tag -d STAGING
+if git tag | grep STAGING; then
+  git tag -d STAGING
+fi
 git tag STAGING
