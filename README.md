@@ -5,14 +5,17 @@ This repository showcases the best practices for developing Django applications 
 1. Follow the one-time set-up steps below.
 2. Create a new branch named after your Haverford username: `git checkout -b <username>`.
 3. Work on the repository locally, debugging using `localhost`.
-4. Commit your changes and push them your personal branch on GitHub.
-5. [Open a pull request](https://github.com/HCDigitalScholarship/ds-cookbook/blob/master/code_review.md) to merge into master.
-6. Once your pull request has been approved and you've merged into master, follow the deployment steps in `deploy_tools/README.md`.
+4. Test your changes with `./test_local`.
+5. Commit your changes and push them your personal branch on GitHub.
+6. [Open a pull request](https://github.com/HCDigitalScholarship/ds-cookbook/blob/master/code_review.md) to merge into master.
+7. Once your pull request has been approved and you've merged into master, follow the deployment steps in `deploy_tools/README.md`.
 
 ## One-time set-up steps
-You'll need Python 3, pip, git, [geckodriver](https://github.com/mozilla/geckodriver), and [virtualenv](https://virtualenv.pypa.io/en/stable/) installed to run this project.
-
 All the set-up steps should be run on your personal computer (i.e., not on the site's dev server).
+
+You'll need Python 3, pip, git, and [virtualenv](https://virtualenv.pypa.io/en/stable/) installed to run this project.
+
+You need a web driver to run the test suite. If you use Firefox, install [geckodriver](https://github.com/mozilla/geckodriver). If you use Chrome, install [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads).
 
 First, clone this repository with git:
 

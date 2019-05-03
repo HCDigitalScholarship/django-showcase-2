@@ -7,7 +7,8 @@ Follow these instructions to add your own personal webpage to the interns app.
 5. Write a view for your page in `interns/views.py`.
 6. Write a unit test\* for your page in `interns/tests.py`.
 7. Write a functional test for your page in `test/test_interns.py`.
-8. Commit your changes, push them to your own branch (**not** to `master`) on GitHub, and [submit a pull request](https://github.com/HCDigitalScholarship/ds-cookbook/blob/master/code_review.md).
-9. Once your pull request is approved, merge your branch into `master` and follow the steps in `deploy_tools/README.md` to deploy your code into production!
+8. Run `./test_local` to make sure your tests pass.
+9. Commit your changes, push them to your own branch (**not** to `master`) on GitHub, and [submit a pull request](https://github.com/HCDigitalScholarship/ds-cookbook/blob/master/code_review.md).
+10. Once your pull request is approved, merge your branch into `master` and follow the steps in `deploy_tools/README.md` to deploy your code into production!
 
 \*: I'm using terminology a bit loosely here: normally a unit test checks a single component of the application, while a functional test checks the behavior of all the components of the app working together. What I'm calling unit tests are not strictly unit tests, because they involve multiple components (e.g, URL routing, views, templates). Nonetheless, they are still different from functional tests because our functional tests involve spinning up an actual browser, rendering the HTML and CSS, and running the JavaScript, which our unit tests do not do.
