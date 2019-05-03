@@ -7,5 +7,5 @@
 
 
 # Make sure to update this variable as new packages are added.
-PACKAGES="justhtml showcase_site tablebuilder test textviewer"
+PACKAGES="interns justhtml showcase_site tablebuilder test textviewer"
 black --check $PACKAGES && flake8 $PACKAGES

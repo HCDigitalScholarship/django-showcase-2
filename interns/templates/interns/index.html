@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Interns{% endblock %}
+
+{% block body %}
+<div class="main">
+
+<h1 class="centered">Digital Scholarship Interns</h1>
+
+<p>
+  Meet our team of Digital Scholarship interns:
+</p>
+
+<ul>
+  <li><a href="{% url 'interns:iafisher' %}">Ian Fisher (class of 2019)</a></li>
+</ul>
+
+<p><a href="{% url 'justhtml:index' %}">Back to main page</a></p>
+
+</div>
+{% endblock %}

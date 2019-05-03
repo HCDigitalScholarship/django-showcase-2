@@ -30,6 +30,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+    "interns.apps.InternsConfig",
     "justhtml.apps.JustHTMLConfig",
     "tablebuilder.apps.TableBuilderConfig",
     "textviewer.apps.TextViewerConfig",
