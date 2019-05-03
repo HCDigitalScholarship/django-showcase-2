@@ -1,5 +1,5 @@
 ## Deployment steps
-1. Run `./deploy_tools/deploy_staging` to deploy to the staging server.
+1. Run `./deploy_tools/deploy_staging` to deploy to the staging server. If you get an error for `Fatal error: run() received nonzero return code 128 while executing!`, then you probably forgot to push your code to GitHub.
 
 2. Run `./test_staging` to test the staging server against the test suite.
 
