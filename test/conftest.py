@@ -3,12 +3,16 @@ import os
 
 import pytest
 from selenium import webdriver
+from selenium.common.exceptions import WebDriverException
 
 
 @pytest.fixture(scope="session")
 def browser():
     """Get a (session-scoped) Selenium browser instance."""
-    browser = webdriver.Firefox()
+    try:
+        browser = webdriver.Firefox()
+    except WebDriverException:
+        browser = webdriver.Chrome()
     yield browser
     browser.quit()
 
