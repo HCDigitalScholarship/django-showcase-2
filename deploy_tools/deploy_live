@@ -28,7 +28,7 @@ fi
 
 read -p "Have you run the staging tests? " yn
 case $yn in
-  [Yy]* ) deploy_live;;
-  [Nn]* ) ./test_staging && deploy_live;;
+  [Yy]* ) deploy_live "$1";;
+  [Nn]* ) ./test_staging && deploy_live "$1";;
   *     ) exit;;
 esac
