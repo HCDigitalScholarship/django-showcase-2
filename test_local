@@ -1,13 +1,26 @@
 #!/bin/bash
 # Run the functional test suite against a local server.
-#
-# If you change this file, make sure to change ./test_staging as well!
+
+# Make sure the test database exists. Currently (as of 2019-05-03) our functional tests don't
+# touch the database, but if we change them so that they do, this test runner will still work.
+if [[ ! -e testdb.sqlite3 ]]; then
+  DJANGO_TEST_DB=testdb.sqlite3 ./manage.py migrate &>/dev/null
+fi
 
 if [[ $# -eq 0 ]]; then
+  ./manage.py test
   ARGS=test
 else
   ARGS=$@
 fi
 
-./manage.py test
-TEST_URL=http://localhost:8000 pytest $ARGS
+# Bind the Django server to a random port between 9500 and 9600, to avoid "port in use"
+# errors that could happen if we used the same port every time.
+PORT=$((9500 + RANDOM % 100))
+DJANGO_TEST_DB=testdb.sqlite3 ./manage.py runserver $PORT &>/dev/null &
+
+TEST_URL=http://localhost:$PORT pytest $ARGS
+
+# Kill the server. We use pkill because the Django runserver command spawns another
+# process, so just killing the original process by its PID is not enough.
+pkill -f "runserver $PORT"
