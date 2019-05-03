@@ -1,5 +1,5 @@
 """
-Integration tests for the tablebuilder app.
+Functional tests for the tablebuilder app.
 
 These tests use Selenium, a library that lets you control a browser with Python. We use
 Selenium to test the user interface and JavaScript.
