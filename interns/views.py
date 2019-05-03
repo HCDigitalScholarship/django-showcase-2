@@ -8,5 +8,6 @@ def index(request):
 def iafisher(request):
     return render(request, "interns/iafisher.html")
 
+
 def yayad(request):
     return render(request, "interns/yayad.html")

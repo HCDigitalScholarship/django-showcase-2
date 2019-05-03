@@ -12,6 +12,7 @@ def test_can_visit_iafisher_page(url, browser):
 
     assert "Ian Fisher" in browser.page_source
 
+
 def test_can_visit_yayad_page(url, browser):
     browser.get(url + "/interns/yayad")
     assert "Yasmine Ayad" in browser.page_source
