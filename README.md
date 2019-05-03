@@ -10,7 +10,7 @@ This repository showcases the best practices for developing Django applications 
 6. Once your pull request has been approved and you've merged into master, follow the deployment steps in `deploy_tools/README.md`.
 
 ## One-time set-up steps
-You'll need Python 3, pip, git, and [virtualenv](https://virtualenv.pypa.io/en/stable/) installed to run this project.
+You'll need Python 3, pip, git, [geckodriver](https://github.com/mozilla/geckodriver), and [virtualenv](https://virtualenv.pypa.io/en/stable/) installed to run this project.
 
 All the set-up steps should be run on your personal computer (i.e., not on the site's dev server).
 
