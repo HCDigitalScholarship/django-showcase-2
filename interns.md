@@ -1,6 +1,6 @@
 Follow these instructions to add your own personal webpage to the interns app.
 
-1. Make sure you've followed the one-time set-up steps in `README.md`, and read the section on "How to work on this repository>"
+1. Make sure you've followed the one-time set-up steps in `README.md`, and read the section on "How to work on this repository."
 2. Create a new template at `interns/templates/interns/<you>.html` where `<you>` is your Haverford username (without the angle brackets). You can base your template off `interns/templates/interns/iafisher.html`, but feel free to customize it however you like!
 3. Add a link to your page on the main interns page at `interns/templates/interns/index.html`.
 4. Add the URL to your page at `interns/urls.py`. The path should be your Haverford username again.
