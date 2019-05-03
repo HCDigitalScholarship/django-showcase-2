@@ -32,6 +32,7 @@ Set up the [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
 ```
 $ cd .git/hooks
 $ ln -s ../../githooks/pre-commit
+$ cd ../..
 ```
 
 Next, create a new virtual environment and activate it:
