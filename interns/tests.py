@@ -12,4 +12,4 @@ class InternsTest(TestCase):
 
     def test_yayad_page(self):
         response = self.client.get("/interns/yayad")
-        self.arrestTemplateUsed(response, "interns/yayad.html")
+        self.assertTemplateUsed(response, "interns/yayad.html")

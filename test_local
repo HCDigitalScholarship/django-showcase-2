@@ -8,7 +8,9 @@ if [[ ! -e testdb.sqlite3 ]]; then
 fi
 
 if [[ $# -eq 0 ]]; then
-  ./manage.py test
+  if ! ./manage.py test; then
+    exit 1
+  fi
   ARGS=test
 else
   ARGS=$@
