@@ -1,9 +1,12 @@
 language: python
 python:
   - "3.6"
+node_js:
+  - "9.6"
 install:
   - pip3 install -r requirements.txt
   - pip3 install black flake8
+  - npm install -g jshint
 script:
   - ./githooks/pre-commit
   - ./manage.py test
