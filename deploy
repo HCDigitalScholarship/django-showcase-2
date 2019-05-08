@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+echo
+echo "=== DEPLOYING TO STAGING ==="
+./deploy_tools/deploy_staging
+sleep 0.5
+
+echo
+echo "=== RUNNING TEST SUITE AGAINST STAGING ==="
+./test_staging
+
+echo
+echo "=== DEPLOYING TO PRODUCTION ==="
+./deploy_tools/deploy_prod

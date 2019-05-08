@@ -28,7 +28,7 @@ if ! diff -s .git/refs/heads/master .git/refs/tags/STAGING &>/dev/null; then
   exit
 fi
 
-read -p "Have you run the staging tests? " yn
+read -p "Are you sure you want to deploy to production? " yn
 case $yn in
   [Yy]* ) deploy_prod "$1";;
   [Nn]* ) ./test_staging && deploy_prod "$1";;
