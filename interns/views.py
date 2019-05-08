@@ -1,3 +1,8 @@
+"""
+The views for the interns app.
+
+See justhtml/views.py for an explanation of views in Django.
+"""
 from django.shortcuts import render
 
 
@@ -11,3 +16,6 @@ def iafisher(request):
 
 def yayad(request):
     return render(request, "interns/yayad.html")
+
+
+# Add your new intern view here!

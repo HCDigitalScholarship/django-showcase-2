@@ -12,7 +12,7 @@ This repository showcases the best practices for developing Django applications 
 ## Organization
 ### Django apps and files
 - `interns/`: An app for the interns page. See `docs/interns.md` for details.
-- `justhtml/`: An app that serves all the static HTML of the site that isn't otherwise associated with an app.
+- `justhtml/`: An app that serves all the static HTML of the site that isn't otherwise associated with an app. The code in this app has especially detailed comments, so check it out first if you're new to Django.
 - `showcase_site/`: The site directory, containing the settings file and other site-wide configuration files.
 - `tablebuilder/`: An app for a simple JavaScript page.
 - `textviewer/`: An app for a text-viewer web application that demonstrates the use of database models.

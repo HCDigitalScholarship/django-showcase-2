@@ -1,10 +1,15 @@
 #!/bin/bash
 #
-# Called by "git commit" with no arguments.  The hook should
-# exit with non-zero status after issuing an appropriate message if
-# it wants to stop the commit.
+# Run linters on all Python and JavaScript code.
+#
+# Whenever you do "git commit" this script is called, and if it exists with a non-zero status,
+# the commit doesn't go through.
+#
+# See https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks for details.
 
 
+# This line ensures that whenever one of the commands in this file exits with an error, the
+# script as a whole does too.
 set -e
 
 # Find all Python files, ignoring the virtual environment.

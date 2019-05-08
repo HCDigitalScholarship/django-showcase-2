@@ -1,3 +1,8 @@
+"""
+Unit tests for the tablebuilder app.
+
+See justhtml/tests.py for an explanation of Django unit tests
+"""
 from django.test import TestCase
 
 

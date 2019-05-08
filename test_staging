@@ -1,5 +1,9 @@
 #!/bin/bash
 # Run the functional test suite against the staging server.
+#
+# IMPORTANT: Make sure this script always returns a non-zero exit code when the test suite
+# fails.
+
 
 if [[ $# -eq 0 ]]; then
   ARGS=test
@@ -7,6 +11,4 @@ else
   ARGS=$@
 fi
 
-# If you change anything, make sure that the script still returns the same exit code as
-# this command.
 TEST_URL=http://dev.django-showcase.haverford.edu pytest $ARGS

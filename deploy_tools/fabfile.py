@@ -1,5 +1,8 @@
 """
-The automated deployment script.
+The automated deployment script, which runs all the commands necessary to deploy the
+code to our staging and production servers.
+
+Don't try to run this file directly; use the top-level ./deploy script instead.
 
 Heavily based on the example from the "Automated Deployment with Fabric" chapter of
 "Obey the Testing Goat" by Harry J. W. Percival.

@@ -1,6 +1,7 @@
 #!/bin/bash
 # Run the functional test suite against a local server.
 
+
 # Make sure the test database exists. Currently (as of 2019-05-03) our functional tests don't
 # touch the database, but if we change them so that they do, this test runner will still work.
 if [[ ! -e testdb.sqlite3 ]]; then

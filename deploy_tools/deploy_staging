@@ -1,4 +1,7 @@
 #!/bin/bash
+# Deploy the code to the staging server.
+#
+# You can run this script directly, but it might be easier to use ./deploy.
 
 set -e
 

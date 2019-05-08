@@ -1,5 +1,5 @@
 """
-WSGI config for showcase project.
+WSGI config for showcase project. You shouldn't need to change this.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
