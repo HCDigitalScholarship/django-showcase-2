@@ -17,17 +17,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 if "DJANGO_DEBUG_FALSE" in os.environ:
-    DEBUG = False
-    SECRET_KEY = os.environ["DJANGO_SECRET_KEY"]
-    ALLOWED_HOSTS = [os.environ["DJANGO_SITENAME"]]
+    from .settings_prod import *  # noqa: F401, F403
 else:
-    DEBUG = True
-    # Insecure secret key for local development.
-    SECRET_KEY = "8w_8om$4htemxb71^nun=!m685-q&be(dgwf0gjcd3bbc!u6y0"
-    ALLOWED_HOSTS = []
+    from .settings_local import *  # noqa: F401, F403
 
-
-# Application definition
 
 INSTALLED_APPS = [
     "interns.apps.InternsConfig",
