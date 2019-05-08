@@ -1,72 +1,38 @@
 # Django showcase for Haverford Digital Scholarship
 This repository showcases the best practices for developing Django applications at Haverford College Digital Scholarship.
 
-## How to work on this repository
-1. Follow the one-time set-up steps below.
-2. Create a new branch named after your Haverford username: `git checkout -b <username>`.
-3. Work on the repository locally, debugging using `localhost`.
-4. Test your changes with `./test_local`.
-5. Commit your changes and push them your personal branch on GitHub.
-6. [Open a pull request](https://github.com/HCDigitalScholarship/ds-cookbook/blob/master/code_review.md) to merge into master.
-7. Once your pull request has been approved and you've merged into master, follow the deployment steps in `deploy_tools/README.md`.
 
-## One-time set-up steps
-All the set-up steps should be run on your personal computer (i.e., not on the site's dev server).
+## How to start
+1. Read this readme and browse the source code, which is mostly well-commented, to get acquainted with the project.
+2. Read the one-time set-up steps in `docs/setup.md`.
+3. Read the workflow steps in `docs/workflow.md`
+4. Read the deployment steps in `docs/deployment.md`.
 
-You'll need Python 3, pip, git, and [virtualenv](https://virtualenv.pypa.io/en/stable/) installed to run this project.
 
-You need a web driver to run the test suite. If you use Firefox, install [geckodriver](https://github.com/mozilla/geckodriver). If you use Chrome, install [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads).
+## Organization
+### Django apps and files
+- `interns/`: An app for the interns page. See `docs/interns.md` for details.
+- `justhtml/`: An app that serves all the static HTML of the site that isn't otherwise associated with an app.
+- `showcase_site/`: The site directory, containing the settings file and other site-wide configuration files.
+- `tablebuilder/`: An app for a simple JavaScript page.
+- `textviewer/`: An app for a text-viewer web application that demonstrates the use of database models.
+- `manage.py`: Django's management script.
 
-First, clone this repository with git:
-
-```
-$ git clone https://github.com/HCDigitalScholarship/django-showcase-2.git
-$ cd django-showcase-2
-```
-
-(Highly recommended) Install [black](https://black.readthedocs.io/en/stable/index.html), [flake8](http://flake8.pycqa.org/en/latest/index.html#) and [JSHint](https://jshint.com/). Note that you will need at least Python 3.6 in order to install black, and you will need [npm](https://nodejs.org/en/) to install JSHint.
-
-```
-$ pip3 install black flake8
-$ npm install -g jshint
-```
-
-Set up the [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) (only do this if you installed the programs in the previous step):
-
-```
-$ cd .git/hooks
-$ ln -s ../../githooks/pre-commit
-$ cd ../..
-```
-
-Next, create a new virtual environment and activate it:
-
-```
-$ virtualenv .venv --python=python3
-$ source .venv/bin/activate
-```
-
-Install the project requirements:
-
-```
-$ pip3 install -r requirements.txt
-```
-
-Apply migrations to the database:
-
-```
-$ ./manage.py migrate
-```
-
-Now you should be able to run the server:
-
-```
-$ ./manage.py runserver
-```
-
-Visit `localhost:8000` in your browser to view the site!
-
-Before you start developing, you'll need to change your host configuration so that the domain `django-showcase.haverford.edu` maps to the proper IP address. Ask a DS librarian how to do this.
+### Other directories and files
+- `deploy_tools/`: Scripts and config files for deploying the site to a remote server
+- `docs/`: Documentation for the project.
+- `githooks/`: The project's [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
+- `logs/`: An empty directory for logs. Django will complain if it doesn't exist.
+- `test/`: The site's functional tests. Note that the unit tests are contained in the `tests.py` modules of each individual app.
+- `.flake8`: Configuration for [flake8](http://flake8.pycqa.org/en/latest/index.html#).
+- `.gitignore`: The list of files to be ignored by git.
+- `.jshintrc`: Configuration for [JSHint](https://jshint.com/).
+- `.travis.yml`: Configuration for [Travis](https://travis-ci.com/).
+- `README.md`: This file!
+- `deploy`: The one-step deployment script. See `docs/deployment.md` for details.
+- `requirements.txt`: The list of required Python packages.
+- `test_local`: The script for running the test suite against a local server.
+- `test_staging`: The script for running the test suite against the staging server.
 
 
 ## Resources
