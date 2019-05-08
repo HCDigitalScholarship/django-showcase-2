@@ -24,13 +24,14 @@ $ git clone https://github.com/HCDigitalScholarship/django-showcase-2.git
 $ cd django-showcase-2
 ```
 
-(Highly recommended) Install [black](https://black.readthedocs.io/en/stable/index.html) and [flake8](http://flake8.pycqa.org/en/latest/index.html#). Note that you will need at least Python 3.6 in order to install black.
+(Highly recommended) Install [black](https://black.readthedocs.io/en/stable/index.html), [flake8](http://flake8.pycqa.org/en/latest/index.html#) and [JSHint](https://jshint.com/). Note that you will need at least Python 3.6 in order to install black, and you will need [npm](https://nodejs.org/en/) to install JSHint.
 
 ```
 $ pip3 install black flake8
+$ npm install -g jshint
 ```
 
-Set up the [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) (only do this if you installed black and flake8 in the previous step):
+Set up the [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) (only do this if you installed the programs in the previous step):
 
 ```
 $ cd .git/hooks

@@ -1,3 +1,6 @@
+"use strict";
+
+
 const TABLE_COLUMNS = 5;
 
 /**

@@ -1,0 +1,37 @@
+{
+  // See https://jshint.com/docs/options/ for in-depth documentation on these options.
+
+  // Enable ES6 features, and tell JSHint that we're writing JS for the browser.
+  "esversion": 6,
+  "browser": true,
+
+  // Require === and !== instead of == and !=.
+  "eqeqeq": true,
+
+  // Require the for-in loops filter the object's items.
+  "forin": true,
+
+  // Give warnings for identifiers which are keywords in future versions of JavaScript.
+  "futurehostile": true,
+
+  // Warn about unused case clauses in switch statements.
+  "leanswitch": true,
+
+  // Require the "u" (Unicode) flag for regular expressions.
+  "regexpu": true,
+
+  // Require a "use strict" declaration.
+  "strict": "global",
+
+  // Require trailing commas in array and object literals.
+  "trailingcomma": true,
+
+  // Prohibit undeclared variables.
+  "undef": true,
+
+  // Warn about unused variables.
+  "unused": true,
+
+  // Disallow var declarations, in favor of let and const.
+  "varstmt": true
+}
