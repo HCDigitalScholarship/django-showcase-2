@@ -3,7 +3,7 @@
 
 2. Run `./test_staging` to test the staging server against the test suite.
 
-3. Assuming the tests passed in step 2, run `./deploy_tools/deploy_live` to deploy to the live server. You will need to confirm you want to deploy to production.
+3. Assuming the tests passed in step 2, run `./deploy_tools/deploy_prod` to deploy to the production server. You will need to confirm you want to deploy to production.
 
 4. Double-check that the changes were successful by visiting the site.
 
@@ -32,7 +32,7 @@ $ sudo chmod g+w /srv/sites
 4. Optional: Use [certbot](https://certbot.eff.org/) to set up HTTPS.
 
 ### Deploy the code
-1. Deploy the code with `./deploy_tools/deploy_staging` (or `./deploy_tools/deploy_live` the second time around).
+1. Deploy the code with `./deploy_tools/deploy_staging` (or `./deploy_tools/deploy_prod` the second time around).
 
 2. Symlink `/srv/sites/dev.django-showcase.haverford.edu/deploy_tools/nginx-dev-conf` to `/etc/nginx/sites-available/dev.django-showcase.haverford.edu`, and symlink that to `/etc/nginx/sites-enabled/dev.django-showcase.haverford.edu`.
 

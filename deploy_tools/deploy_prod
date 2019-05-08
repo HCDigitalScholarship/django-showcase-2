@@ -2,17 +2,17 @@
 
 set -e
 
-deploy_live() {
+deploy_prod() {
   if [[ $# -ne 0 ]]; then
     fab -f deploy_tools/fabfile.py "deploy:host=$1@django-showcase.haverford.edu"
   else
     fab -f deploy_tools/fabfile.py deploy:host=django-showcase.haverford.edu
   fi
 
-  if git tag | grep LIVE; then
-    git tag -d LIVE
+  if git tag | grep PROD; then
+    git tag -d PROD
   fi
-  git tag LIVE
+  git tag PROD
 }
 
 # Make sure we are on the master branch.
@@ -30,7 +30,7 @@ fi
 
 read -p "Have you run the staging tests? " yn
 case $yn in
-  [Yy]* ) deploy_live "$1";;
-  [Nn]* ) ./test_staging && deploy_live "$1";;
+  [Yy]* ) deploy_prod "$1";;
+  [Nn]* ) ./test_staging && deploy_prod "$1";;
   *     ) exit;;
 esac
