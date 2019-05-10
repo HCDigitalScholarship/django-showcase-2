@@ -1,7 +1,9 @@
+# Use the Xenial distribution of Ubuntu, because it has an up-to-date version of SQLite.
 dist: xenial
 language: python
 python:
   - "3.6"
+# We need Node to install JSHint, our JavaScript linter.
 node_js:
   - "9.6"
 install:

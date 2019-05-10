@@ -17,6 +17,9 @@ PY=$(find . -path ./.venv -prune -o -name "*.py" -print)
 black --check $PY
 flake8 $PY
 
-# Find all JavaScript files, ignoring the virtual environment (just in case).
-JS=$(find . -path ./.venv -prune -o -name "*.js" -print)
-jshint $JS
+# If JSHint is installed, find all JavaScript files, ignoring the virtual environment
+# (just in case).
+if which jshint; then
+  JS=$(find . -path ./.venv -prune -o -name "*.js" -print)
+  jshint $JS
+fi

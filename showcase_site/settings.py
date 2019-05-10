@@ -76,6 +76,8 @@ WSGI_APPLICATION = "showcase_site.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
+        # The DJANGO_TEST_DB environment variable can override the default database
+        # location, e.g. for functional testing.
         "NAME": os.path.join(BASE_DIR, os.environ.get("DJANGO_TEST_DB", "db.sqlite3")),
     }
 }
@@ -114,18 +116,23 @@ USE_TZ = True
 STATIC_URL = "/static/"
 # We keep some common static assets in the site folder, to be shared between apps.
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "showcase_site", "static")]
+# In production, all the static files are collected into a single folder, from which
+# Nginx can serve them.
 STATIC_ROOT = os.path.join(BASE_DIR, "static_collected")
 
 
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
+    # Formatters determine how log messages are formatted.
     "formatters": {
         "verbose": {
             "format": "[{levelname}] {asctime} {pathname}: {message}",
             "style": "{",
         }
     },
+    # Handlers determine how log messages are emitted (in this case, to a file in the
+    # logs/ directory).
     "handlers": {
         "file": {
             "level": "DEBUG",
@@ -137,6 +144,7 @@ LOGGING = {
             "formatter": "verbose",
         }
     },
+    # Loggers are the interface that your code uses.
     "loggers": {
         "showcase_site": {"handlers": ["file"], "level": "DEBUG", "propagate": True}
     },

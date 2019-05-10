@@ -1,3 +1,12 @@
+/**
+ * The common stylesheet for the showcase site.
+ */
+
+
+* {
+  box-sizing: border-box;
+}
+
 /* A class for a centered container no more than 52rem wide. */
 .main {
   max-width: 52rem;
@@ -5,10 +14,6 @@
   margin: 0 auto;
   height: 100%;
   overflow: auto;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 html, body {
@@ -22,6 +27,7 @@ html, body {
   background-color: #fff8f2;
 }
 
+/* A class for elements with centered text. */
 .centered {
   text-align: center;
 }
