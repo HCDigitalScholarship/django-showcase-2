@@ -1,8 +1,8 @@
 """
 The views for the interns app.
 
-See justhtml/views.py for an introductory explanation of views in Django. This module
-has slightly more complex views, because it actually needs to query the database.
+See interns/views.py for an introductory explanation of views in Django. This module has
+slightly more complex views, because it actually needs to query the database.
 """
 from django.shortcuts import get_object_or_404, render
 

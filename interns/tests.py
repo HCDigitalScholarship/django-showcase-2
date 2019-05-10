@@ -1,7 +1,10 @@
 """
 Unit tests for the interns app.
 
-See justhtml/tests.py for an explanation of Django unit tests
+These tests make sure that visiting each URL that the app defines results in the
+expected template being returned. Unlike the functional tests in the top-level tests/
+directory, it does not test the appearance or behavior of the web page as the browser
+would actually render it.
 """
 from django.test import TestCase
 

@@ -1,7 +1,7 @@
 """
 Unit tests for the textviewer app.
 
-See justhtml/tests.py for an explanation of Django unit tests
+See interns/tests.py for an explanation of Django unit tests
 """
 from django.test import TestCase
 
