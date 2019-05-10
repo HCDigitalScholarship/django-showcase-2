@@ -3,16 +3,17 @@ All the set-up steps should be run on your personal computer (i.e., not on the s
 
 You'll need Python 3, pip, git, and [virtualenv](https://virtualenv.pypa.io/en/stable/) installed to run this project.
 
-You need a web driver to run the test suite. If you use Firefox, install [geckodriver](https://github.com/mozilla/geckodriver). If you use Chrome, install [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads).
+First, you need a web driver to run the test suite. If you use Firefox, install [geckodriver](https://github.com/mozilla/geckodriver). If you use Chrome, install [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/downloads). This can be a bit tricky; ask a DS librarian if you need help.
 
-First, clone this repository with git:
+Clone this repository with git and make a personal branch (`<user>` should be your Haverford username, without the brackets, e.g. `kbenston`):
 
 ```
 $ git clone https://github.com/HCDigitalScholarship/django-showcase-2.git
 $ cd django-showcase-2
+$ git checkout -b <user>
 ```
 
-(Highly recommended) Install [black](https://black.readthedocs.io/en/stable/index.html), [flake8](http://flake8.pycqa.org/en/latest/index.html#) and [JSHint](https://jshint.com/). Note that you will need at least Python 3.6 in order to install black, and you will need [npm](https://nodejs.org/en/) to install JSHint.
+(Highly recommended) Install [black](https://black.readthedocs.io/en/stable/index.html), [flake8](http://flake8.pycqa.org/en/latest/index.html#) and (optionally) [JSHint](https://jshint.com/). Note that you will need at least Python 3.6 in order to install black, and you will need [npm](https://nodejs.org/en/) to install JSHint.
 
 ```
 $ pip3 install black flake8
@@ -54,4 +55,4 @@ $ ./manage.py runserver
 
 Visit `localhost:8000` in your browser to view the site!
 
-Before you start developing, you'll need to change your host configuration so that the domain `django-showcase.haverford.edu` maps to the proper IP address. Ask a DS librarian how to do this.
+Before you start developing, you'll need to change your host configuration so that the domain `dev.django-showcase.haverford.edu` and `django-showcase.haverford.edu` map to the proper IP address. Ask a DS librarian how to do this.
