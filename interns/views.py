@@ -18,4 +18,8 @@ def yayad(request):
     return render(request, "interns/yayad.html")
 
 
+def mzarafon(request):
+    return render(request, "interns/mzarafon.html")
+
+
 # Add your new intern view here!

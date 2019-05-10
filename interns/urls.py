@@ -15,5 +15,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("iafisher", views.iafisher, name="iafisher"),
     path("yayad", views.yayad, name="yayad"),
+    path("mzarafon", views.mzarafon, name="mzarafon"),
     # Add your new intern URL here!
 ]
