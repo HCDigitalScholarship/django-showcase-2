@@ -27,4 +27,8 @@ def mzarafon(request):
     return render(request, "interns/mzarafon.html")
 
 
+def cstuartroe(request):
+    return render(request, "interns/cstuartroe.html")
+
+
 # Add your new intern view here!
