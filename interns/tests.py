@@ -25,3 +25,7 @@ class InternsTest(TestCase):
     def test_mzarafon_page(self):
         response = self.client.get("/interns/mzarafon")
         self.assertTemplateUsed(response, "interns/mzarafon.html")
+
+    def test_cstuartroe_page(self):
+        response = self.client.get("/interns/cstuartroe")
+        self.assertTemplateUsed(response, "interns/cstuartroe.html")
